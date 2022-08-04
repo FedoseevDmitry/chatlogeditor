@@ -1,0 +1,130 @@
+.processing {
+  padding-top: 63px;
+  margin-bottom: 38px;
+}
+
+.processing__container {
+  background-color: var(--color-bg-main);
+  border: 1px solid #EAEBEB;
+  box-shadow: 0px 8px 24px rgba(10, 17, 105, 0.08);
+  border-radius: 12px;
+}
+
+.processing__header {
+  background: var(--color-bg-second);
+  border-radius: 12px 12px 0px 0px;
+  margin-bottom: 17px;
+}
+
+.processing__title {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.2px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: var(--color-text-main);
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #EAEBEB;
+}
+
+.textarea {
+  resize: none;
+  width: 1060px;
+  height: 209px;
+  margin: 0 auto;
+  display: flex;
+  background: var(--color-bg-second);
+  box-shadow: inset 0px 4px 16px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  border-color: transparent;
+  padding: 5px;
+  cursor: auto;
+  font-size: 14px;
+}
+
+.textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.textarea::-webkit-scrollbar-track {
+  background-color: var(--color-bg-second);
+  border-radius: 100px;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+  background-color: var(--color-bg-btn);
+  border-radius: 100px;
+}
+
+.processing__textarea-input {
+  margin-bottom: 22px;
+}
+
+.processing__textarea-output {
+  margin-bottom: 22px;
+}
+
+.processing__btn {
+  width: 550px;
+  height: 49px;
+  background: var(--color-bg-btn);
+  border-radius: 10px;
+  border-color: transparent;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: #FFFFFF;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 34px;
+}
+
+.processing__btn:hover,
+.processing__btn:active {
+  background-color: var(--color-bg-btn-use);
+  transition: all .3s ease-in-out;
+}
+
+.swap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+  align-items: center;
+}
+
+.swap__wrapper:first-child {
+  margin-right: 42px;
+}
+
+.swap__text {
+  padding-left: 6px;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.2px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: var(--color-text-main);
+}
+
+.swap__input {
+  width: 396px;
+  height: 68px;
+  background: var(--color-bg-second);
+  box-shadow: inset 0px 4px 16px rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  border-color: transparent;
+  padding: 25px 0 19px 41px;
+  font-size: 16px;
+}
+
+.swap__btn {
+  width: 50px;
+  height: 30px;
+  background: var(--color-bg-btn);
+  border-radius: 12px;
+  border-color: transparent;
+  margin-right: 42px;
+  margin-top: 32px;
+}

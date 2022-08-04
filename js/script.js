@@ -5,7 +5,12 @@ btn1.onclick = () => {
   let chatlogBefore = document.getElementById("chatlog").value;
   let chatlogArr = chatlogBefore.split(/\r?\n/);
 
+// Перебираем все строки
+
   chatlogArr.forEach(textRow => {
+    // Внутри каждой строки удаляем отметки даты и времени в квадратных скобках
+    // Выходим из цикла после первого нахождения квадратных скобок
+
     for (let elem in textRow) {
       let row = textRow[elem];
       if (row == "[") {
@@ -16,6 +21,9 @@ btn1.onclick = () => {
         break;
       };
     };
+
+    // Внутри каждой строки удаляем отметки упоминания цветов, отрабатываем
+    // пока не будут удалены все фигурные скобки
   
     for (let elem in textRow) {
       let row = textRow[elem];
@@ -36,12 +44,18 @@ btn1.onclick = () => {
       };
     };
 
+    // Форматируем пробелы, оставшиеся после удаления фигурных скобок
+
     if(textRow[0]==' ') { textRow = textRow.substring(1); };
+
+    // Добавляем в вывод обработчика только ис чаты, игнорируя /b и /ab
 
     if ((textRow[0] != '(' && textRow[1] != '(') || (textRow[0] != '>' && textRow[1] != '(' && textRow[2] != '(')) {
       chatlogAfterArr.push(textRow + `\n`);
     };
   });
+
+  // Удаляем в выводе запятые
 
   chatlogAfterArr = chatlogAfterArr.join('');
 
@@ -56,14 +70,20 @@ swapbtn.onclick = () => {
   let finaleArr = [];
 
   chatlogArr.forEach(charName => {
+    // Заменяем значения в блоке Изменения
+
     if (charName.includes(charNameBefore)) {
       charNameEdited = charName.replace(charNameBefore, charNameAfter);
     } else {
       charNameEdited = charName;
     };
 
+    // Добавляем в новый массив измененные данные
+
     finaleArr.push(charNameEdited + `\n`);
   });
+
+  // Удаляем в выводе запятые
 
   finaleArr = finaleArr.join('');
 
