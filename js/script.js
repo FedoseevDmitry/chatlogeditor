@@ -10,7 +10,10 @@ btn1.onclick = () => {
       let row = textRow[elem];
       if (row == "[") {
         let elemIndex = textRow.indexOf("]");
-        textRow = textRow.slice(elemIndex + 1, textRow.length - 1);
+
+        textRow = textRow.slice(elemIndex + 1, textRow.length);
+
+        break;
       };
     };
   
@@ -35,7 +38,7 @@ btn1.onclick = () => {
 
     if(textRow[0]==' ') { textRow = textRow.substring(1); };
 
-    if (textRow[0] != '(' && textRow[1] != '(') {
+    if ((textRow[0] != '(' && textRow[1] != '(') || (textRow[0] != '>' && textRow[1] != '(' && textRow[2] != '(')) {
       chatlogAfterArr.push(textRow + `\n`);
     };
   });
