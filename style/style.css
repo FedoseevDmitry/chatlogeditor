@@ -1,0 +1,60 @@
+body {
+  background-color: #a7bfc3;
+}
+
+*:focus {
+  outline: 0;
+}
+
+img {
+  height: auto;
+  width: 10%;
+}
+
+.header {
+  display: flex;
+}
+
+.header__title {
+  color: #427593;
+  text-shadow: 2px 3px 3px black;
+}
+
+.textarea {
+  resize: none;
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  background-color: #427593;
+  color: #a7bfc3;
+}
+
+.input__textarea {
+  margin-bottom: 10px;
+}
+
+.textarea__btn {
+  margin: 0 auto;
+  display: flex;
+}
+
+.textarea__btn,
+.swap__btn {
+  background-color: #427593;
+  border: 1px solid #174a65;
+  color: #a7bfc3;
+  cursor: pointer;
+}
+
+.swap__input {
+  background-color: #427593;
+  border: 1px solid #174a65;
+  color: #a7bfc3;
+}
+
+.swap,
+.output {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

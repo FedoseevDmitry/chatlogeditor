@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script defer src="js/script.js"></script>
+  <link rel="stylesheet" href="style/style.css">
+  <title>Chatlog Editor</title>
+</head>
+<body>
+
+  <header class="header">
+    <img class="header__img" src="img/rpw.png" alt="RPW Logo" width="1920" height="1080">
+    
+    <h1 class="header__title">Console.log Editor</h1>
+  </header>
+
+  <div class="input">
+    <h2 class="input__title">Ввод:</h2>
+
+    <textarea class="input__textarea textarea" name="chatlog" id="chatlog" cols="30" rows="15"></textarea>
+
+    <button class="textarea__btn" id="btn1" type="button">Передать на обработку</button>
+  </div>
+  <div class="swap">
+    <h2 class="swap__title">Изменения:</h2>
+
+    <div class="swap__wrapper">
+      <label class="swap__label"> C
+        <input class="swap__input" type="text" id="text1">
+      </label>
+
+      <label class="swap__label"> На
+        <input class="swap__input swap__input_second" type="text" id="text2">
+      </label>
+
+      <button class="swap__btn" id="swapbtn">Изменить</button>
+    </div>
+  </div>
+
+  <div class="output">
+    <h2 class="output__title">Вывод:</h2>
+    
+    <textarea class="output__textarea textarea" name="textarea_output" id="textarea2" cols="30" rows="15" spellcheck="true"></textarea>
+  </div>
+</body>
+</html>
