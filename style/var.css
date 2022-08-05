@@ -5,4 +5,13 @@
   --color-bg-second: #FCFCFD;
   --color-bg-btn: #5640FF;
   --color-bg-btn-use: #4432CC;
+  --dark-bg-main: #222222;
+  --dark-bg-second: #595656;
+  --dark-bg-third: #333333;
+  --dark-bg-textarea: #676464;
+  --dark-text-main: #fff;
+  --dark-color-border: #434444;
+  --dark-color-border-second: #676464;
+  --color-switch-icon-light: #fff;
+  --color-switch-icon-dark: #4f4f4f;
 }

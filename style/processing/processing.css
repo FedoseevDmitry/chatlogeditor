@@ -8,6 +8,7 @@
   border: 1px solid #EAEBEB;
   box-shadow: 0px 8px 24px rgba(10, 17, 105, 0.08);
   border-radius: 12px;
+  height: 757px;
 }
 
 .processing__header {
@@ -35,13 +36,19 @@
   height: 209px;
   margin: 0 auto;
   display: flex;
-  background: var(--color-bg-second);
+  background-color: var(--color-bg-second);
   box-shadow: inset 0px 4px 16px rgba(0, 0, 0, 0.04);
   border-radius: 12px;
   border-color: transparent;
   padding: 5px;
   cursor: auto;
   font-size: 14px;
+  padding: 10px;
+  color: inherit;
+}
+
+.textarea:focus {
+  outline: 2px solid var(--color-bg-btn);
 }
 
 .textarea::-webkit-scrollbar {
@@ -115,8 +122,13 @@
   box-shadow: inset 0px 4px 16px rgba(0, 0, 0, 0.04);
   border-radius: 12px;
   border-color: transparent;
-  padding: 25px 0 19px 41px;
+  padding: 10px;
   font-size: 16px;
+  color: inherit;
+}
+
+.swap__input:focus {
+  outline: 2px solid var(--color-bg-btn);
 }
 
 .swap__btn {
@@ -127,4 +139,10 @@
   border-color: transparent;
   margin-right: 42px;
   margin-top: 32px;
+}
+
+.swap__btn:hover,
+.swap__btn:active {
+  background-color: var(--color-bg-btn-use);
+  transition: all .3s ease-in-out;
 }

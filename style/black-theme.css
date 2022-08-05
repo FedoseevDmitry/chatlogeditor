@@ -1,0 +1,38 @@
+body {
+  background-color: var(--dark-bg-main);
+  color: var(--dark-text-main);
+}
+
+.switch__icon {
+  color: var(--color-switch-icon-light);
+}
+
+.processing__container {
+  background-color: var(--dark-bg-second);
+  border: 1px solid var(--dark-border-color);
+}
+
+.processing__header {
+  background: var(--dark-bg-third);
+}
+
+.processing__title {
+  color: var(--dark-text-main);
+  border-color: var(--dark-bg-textarea);
+}
+
+.textarea {
+  background-color: var(--dark-bg-textarea);
+}
+
+.swap__input {
+  background-color: var(--dark-bg-textarea);
+}
+
+.swap__text {
+  color: var(--dark-text-main);
+}
+
+.textarea::-webkit-scrollbar-track {
+  background-color: var(--dark-bg-third);
+}
