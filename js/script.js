@@ -24,7 +24,7 @@ btn1.onclick = () => {
 
     // Внутри каждой строки удаляем отметки упоминания цветов, отрабатываем
     // пока не будут удалены все фигурные скобки
-  
+
     for (let elem in textRow) {
       let row = textRow[elem];
       if (row == "!") {
@@ -40,9 +40,11 @@ btn1.onclick = () => {
             };
             break;
           };
+          elem = textRow.indexOf('!');
         };
       };
     };
+
 
     // Форматируем пробелы, оставшиеся после удаления фигурных скобок
 
@@ -50,7 +52,8 @@ btn1.onclick = () => {
 
     // Добавляем в вывод обработчика только ис чаты, игнорируя /b и /ab
 
-    if ((textRow[0] != '(' && textRow[1] != '(') || (textRow[0] != '>' && textRow[1] != '(' && textRow[2] != '(')) {
+    if ((textRow[0] != '(' && textRow[1] != '(') || (textRow[0] != '>' &&
+    textRow[1] != '(' && textRow[2] != '(')) {
       chatlogAfterArr.push(textRow + `\n`);
     };
   });
