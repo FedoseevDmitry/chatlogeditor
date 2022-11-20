@@ -1,31 +1,58 @@
 .processing {
-  padding-top: 63px;
-  margin-bottom: 38px;
+  margin-bottom: 20px;
+  grid-area: center;
 }
 
 .processing__container {
-  background-color: var(--color-bg-main);
-  border: 1px solid #EAEBEB;
   box-shadow: 0px 8px 24px rgba(10, 17, 105, 0.08);
   border-radius: 12px;
+  padding-bottom: 5px;
+  width: 1125px;
 }
 
-.processing__header {
+.processing__menu {
   background: var(--color-bg-second);
   border-radius: 12px 12px 0px 0px;
   margin-bottom: 17px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+
+.processing__tab {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.2px;
+  font-feature-settings: 'tnum' on, 'lnum' on;
+  color: var(--color-text-btn);
+  background-color: var(--dark-bg-third);
+  padding-top: 10px;
+  padding-left: 40px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #EAEBEB;
+  border: none;
+  border-radius: 12px 12px 0 0;
+}
+
+.processing__tab:hover {
+  background-color: var(--color-bg-btn);
+  transition: all .3s ease-in-out;
+}
+
+.processing__tab_active {
+  background-color: var(--color-bg-btn-use);
 }
 
 .processing__title {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 20px;
   line-height: 32px;
   letter-spacing: 0.2px;
   font-feature-settings: 'tnum' on, 'lnum' on;
   color: var(--color-text-main);
-  padding-top: 20px;
-  padding-left: 40px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #EAEBEB;
 }
 
@@ -44,23 +71,6 @@
   font-size: 14px;
   padding: 10px;
   color: inherit;
-  /* text-shadow: 
-  -0   -1px 3px #000000,
-   0   -1px 3px #000000,
-  -0    1px 3px #000000,
-   0    1px 3px #000000,
-  -1px -0   3px #000000,
-   1px -0   3px #000000,
-  -1px  0   3px #000000,
-   1px  0   3px #000000,
-  -1px -1px 3px #000000,
-   1px -1px 3px #000000,
-  -1px  1px 3px #000000,
-   1px  1px 3px #000000,
-  -1px -1px 3px #000000,
-   1px -1px 3px #000000,
-  -1px  1px 3px #000000,
-   1px  1px 3px #000000; */
 }
 
 .textarea:focus {
@@ -86,7 +96,11 @@
 }
 
 .processing__textarea-output {
-  margin-bottom: 0px;
+  margin-bottom: 22px;
+}
+
+.processing__textarea-output_low {
+  height: 120px;
 }
 
 .upload {
@@ -152,7 +166,6 @@
 .swap {
   display: flex;
   justify-content: center;
-  margin-bottom: 22px;
   align-items: center;
   padding-bottom: 22px;
 }
@@ -173,7 +186,7 @@
 
 .swap__input {
   width: 396px;
-  height: 68px;
+  height: 38px;
   background: var(--color-bg-second);
   box-shadow: inset 0px 4px 16px rgba(0, 0, 0, 0.04);
   border-radius: 12px;
@@ -181,6 +194,10 @@
   padding: 10px;
   font-size: 16px;
   color: inherit;
+}
+
+.swap__input::placeholder {
+  font-size: 14px;
 }
 
 .swap__input:focus {
@@ -194,7 +211,6 @@
   border-radius: 12px;
   border-color: transparent;
   margin-right: 42px;
-  margin-top: 32px;
 }
 
 .swap__btn:hover,

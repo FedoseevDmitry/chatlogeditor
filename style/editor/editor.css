@@ -1,0 +1,70 @@
+.processing__canvas {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  width: 1024px;
+  height: 576px;
+}
+
+.editor__btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+
+.editor__btn {
+  width: 250px;
+  height: 40px;
+  background: var(--color-bg-btn);
+  border-radius: 10px;
+  border-color: transparent;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.editor__btn_update:hover {
+  cursor: help;
+}
+
+.editor__btn:hover,
+.editor__btn:active {
+  background-color: var(--color-bg-btn-use);
+  transition: all .3s ease-in-out;
+}
+
+.editor__btn_upload {
+  position: relative;
+	display: flex;
+  width: 250px;
+  height: 40px;
+}
+
+.upload__text {
+	display: flex;
+	cursor: pointer;
+  width: inherit;
+  height: inherit;
+  background: var(--color-bg-btn);
+  border-radius: 10px;
+  border-color: transparent;
+  color: #FFFFFF;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.editor__btn_upload {
+  position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: none;
+	width: 0;
+	height: 0;
+}

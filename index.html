@@ -9,8 +9,13 @@
   <script defer src="js/formatting.js"></script>
   <script defer src="js/theme.js"></script>
   <script defer src="js/upload.js"></script>
+  <script defer src="js/swapwindow.js"></script>
+  <script defer src="js/editor.js"></script>
 
   <link rel="shortcut icon" href="/img/fav.png" type="image/png">
+
+  <link rel="preload" href="fonts/ProximaNova-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Chalet-LondonEighty.otf" as="font" type="font/otf" crossorigin>
 
   <link rel="stylesheet" href="style/style.css">
   <link rel="stylesheet" href="style/style-black.css" id="theme-link">
@@ -18,72 +23,393 @@
 </head>
 
 <body>
-  <div class="logo">
-    <a class="logo__link" href="https://roleplayworld.ru/" target="_blank">
-      <img class="logo__img" src="style/logo/img/logo.png" alt="Логотип Role Play World" width="120" height="115">
-    </a>
+  <header class="header">
+    <div class="header__container container">
+      <a class="header__link" href="https://roleplayworld.ru/" target="_blank">
+        <img src="style/header/img/logo.png" alt="Логотип RPW" class="header__logo" width="764" height="191">
+      </a>
 
-    <label class="logo__switch switch">
-      <svg class="switch__icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="25px" heigth="24px"
-        viewbox="0 0 47.539 47.539" xml:space="preserve">
-        <g>
-          <g>
-            <path style="fill:currentColor;" d="M24.997,47.511C11.214,47.511,0,36.298,0,22.515C0,12.969,5.314,4.392,13.869,0.132
-              c0.385-0.191,0.848-0.117,1.151,0.186s0.381,0.766,0.192,1.15C13.651,4.64,12.86,8.05,12.86,11.601
-              c0,12.681,10.316,22.997,22.997,22.997c3.59,0,7.033-0.809,10.236-2.403c0.386-0.191,0.848-0.117,1.151,0.186
-              c0.304,0.303,0.381,0.766,0.192,1.15C43.196,42.153,34.597,47.511,24.997,47.511z M12.248,3.372C5.862,7.608,2,14.709,2,22.515
-              c0,12.68,10.316,22.996,22.997,22.996c7.854,0,14.981-3.898,19.207-10.343c-2.668,0.95-5.464,1.43-8.346,1.43
-              c-13.783,0-24.997-11.214-24.997-24.997C10.861,8.761,11.327,6.005,12.248,3.372z"/>
-          </g>
-        </g>
-      </svg>
-      <input class="switch__checkbox" type="checkbox" checked>
-      <span class="switch__slider"></span>
-    </label>
-  </div>
-
-  <section class="processing">
-    <div class="processing__container container">
-      <div class="processing__header">
-        <h1 class="processing__title">Форматирование игрового чата</h1>
-      </div>
-
-      <form method="post">
-        <textarea class="processing__textarea-input textarea" name="chatlog" id="chatlog" cols="30" rows="15"></textarea>
-
-        <label class="processing__upload upload">
-          <input class="upload__btn" type="file" id="js-file" accept=".txt">
-
-          <span class="upload__text">Выберите файл лога</span>
+      <div class="header__switch switch">
+        <label class="switch__label">
+          <svg class="switch__icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          viewbox="0 0 512 512" width="25px" height="24px" fill="currentColor" xml:space="preserve">
+            <g>
+              <g>
+                <path d="M255.999,83.867c-94.915,0-172.132,77.219-172.132,172.132s77.218,172.132,172.132,172.132
+                  s172.132-77.218,172.132-172.132S350.914,83.867,255.999,83.867z M255.999,412.924c-86.529,0-156.924-70.396-156.924-156.924
+                  S169.47,99.075,255.999,99.075s156.924,70.395,156.924,156.924S342.528,412.924,255.999,412.924z"/>
+              </g>
+            </g>
+            <g>
+              <g>
+                <path d="M510.526,301.328l-33.458-45.604c-5.898-8.04-6.59-18.872-1.763-27.596l27.379-49.494c1.035-1.87,1.235-4.089,0.551-6.114
+                  c-0.684-2.025-2.188-3.668-4.144-4.528l-51.778-22.765c-9.128-4.013-15.143-13.048-15.326-23.018l-1.035-56.552
+                  c-0.04-2.136-0.975-4.158-2.579-5.57c-1.604-1.411-3.727-2.083-5.852-1.849l-56.225,6.173
+                  c-9.909,1.087-19.638-3.728-24.781-12.271L312.341,3.682c-1.102-1.831-2.924-3.114-5.019-3.533s-4.27,0.06-5.994,1.325
+                  l-45.605,33.457c-8.039,5.898-18.872,6.59-27.597,1.763L178.632,9.315c-1.871-1.035-4.088-1.235-6.114-0.551
+                  c-2.025,0.683-3.668,2.188-4.528,4.144l-22.765,51.777c-4.013,9.128-13.048,15.144-23.018,15.327l-56.552,1.036
+                  c-2.136,0.04-4.158,0.975-5.57,2.579c-1.411,1.605-2.082,3.729-1.849,5.853l6.173,56.224c1.088,9.911-3.728,19.638-12.271,24.782
+                  L3.682,199.658c-1.831,1.102-3.114,2.924-3.533,5.019c-0.42,2.095,0.061,4.27,1.324,5.994l33.458,45.604
+                  c5.899,8.04,6.59,18.872,1.764,27.597L9.316,333.365c-1.035,1.87-1.235,4.089-0.55,6.114c0.684,2.025,2.188,3.668,4.144,4.528
+                  l51.778,22.766c9.128,4.013,15.144,13.048,15.327,23.018l1.035,56.552c0.04,2.136,0.975,4.158,2.579,5.57
+                  c1.605,1.411,3.728,2.087,5.853,1.849l56.224-6.173c9.903-1.091,19.638,3.728,24.782,12.271l29.173,48.458
+                  c1.102,1.831,2.924,3.114,5.019,3.533c0.497,0.099,0.997,0.148,1.495,0.148c1.605,0,3.183-0.508,4.498-1.473l45.605-33.458
+                  c8.04-5.898,18.871-6.59,27.597-1.763l49.493,27.379c1.869,1.035,4.087,1.234,6.114,0.55c2.025-0.683,3.668-2.188,4.528-4.144
+                  l22.766-51.778c4.013-9.127,13.048-15.144,23.018-15.327l56.552-1.035c2.136-0.039,4.158-0.975,5.57-2.579
+                  c1.411-1.605,2.082-3.729,1.849-5.852l-6.173-56.225c-1.088-9.911,3.728-19.638,12.271-24.781l48.458-29.173
+                  c1.831-1.102,3.114-2.924,3.533-5.019C512.271,305.228,511.79,303.051,510.526,301.328z M452.015,328.484
+                  c-13.606,8.191-21.278,23.684-19.544,39.471l5.264,47.943l-48.223,0.883c-15.878,0.291-30.269,9.873-36.661,24.411l-19.412,44.153
+                  l-42.204-23.347c-13.897-7.689-31.15-6.586-43.955,2.809l-38.888,28.531l-24.877-41.322
+                  c-7.423-12.331-20.842-19.787-35.043-19.787c-1.469,0-2.947,0.08-4.427,0.242L96.1,437.736l-0.883-48.223
+                  c-0.291-15.879-9.872-30.269-24.411-36.661l-44.152-19.413l23.347-42.204c7.688-13.897,6.585-31.15-2.809-43.955l-28.53-38.889
+                  l41.321-24.876c13.606-8.191,21.278-23.684,19.544-39.471L74.264,96.1l48.223-0.883c15.878-0.291,30.269-9.872,36.661-24.411
+                  l19.412-44.152l42.204,23.347c13.897,7.687,31.15,6.585,43.955-2.809l38.888-28.53l24.877,41.321
+                  c8.191,13.606,23.684,21.278,39.47,19.544l47.944-5.264l0.883,48.223c0.29,15.879,9.872,30.269,24.41,36.661l44.153,19.412
+                  l-23.347,42.204c-7.688,13.896-6.585,31.149,2.809,43.954l28.531,38.889L452.015,328.484z"/>
+              </g>
+            </g>
+            <g>
+              <g>
+                <path d="M255.999,138.335c-64.881,0-117.665,52.785-117.665,117.665c0,4.199,3.405,7.604,7.604,7.604s7.604-3.405,7.604-7.604
+                c0-56.495,45.961-102.457,102.457-102.457c4.199,0,7.604-3.405,7.604-7.604S260.199,138.335,255.999,138.335z"/>
+              </g>
+            </g>
+          </svg>
+  
+          <input class="switch__checkbox" type="checkbox" checked>
+          <span class="switch__slider"></span>
+  
+          <svg class="switch__icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 47.539 47.539" xml:space="preserve">
+            <g>
+              <g>
+                <path style="fill:currentColor;" d="M24.997,47.511C11.214,47.511,0,36.298,0,22.515C0,12.969,5.314,4.392,13.869,0.132
+                  c0.385-0.191,0.848-0.117,1.151,0.186s0.381,0.766,0.192,1.15C13.651,4.64,12.86,8.05,12.86,11.601
+                  c0,12.681,10.316,22.997,22.997,22.997c3.59,0,7.033-0.809,10.236-2.403c0.386-0.191,0.848-0.117,1.151,0.186
+                  c0.304,0.303,0.381,0.766,0.192,1.15C43.196,42.153,34.597,47.511,24.997,47.511z M12.248,3.372C5.862,7.608,2,14.709,2,22.515
+                  c0,12.68,10.316,22.996,22.997,22.996c7.854,0,14.981-3.898,19.207-10.343c-2.668,0.95-5.464,1.43-8.346,1.43
+                  c-13.783,0-24.997-11.214-24.997-24.997C10.861,8.761,11.327,6.005,12.248,3.372z"/>
+              </g>
+            </g>
+          </svg>
         </label>
-      </form>
-
-      <button class="processing__btn" id="btn1" type="button">Форматировать</button>
-
-      <textarea class="processing__textarea-output textarea" name="textarea_output" id="textarea2" cols="30" rows="15" spellcheck="true"></textarea>
-  
-      <div class="processing__swap swap">
-  
-        <div class="swap__wrapper">
-          <p class="swap__text">Из</p>
-          <input class="swap__input" type="text" id="text1">
-        </div>
-
-          <button class="swap__btn" id="swapbtn">
-            <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13.75 11.875L17.5 8.125L13.75 4.375" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2.5 15.625C2.5 13.6359 3.29018 11.7282 4.6967 10.3217C6.10322 8.91518 8.01088 8.125 10 8.125H17.5" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-  
-        <div class="swap__wrapper">
-          <p class="swap__text">В</p>
-          <input class="swap__input swap__input_second" type="text" id="text2">
-        </div>
-          
       </div>
     </div>
-  </section>
+  </header>
+
+  <main class="main">
+    <div class="main__left-wrapper visually-hidden">
+      <aside class="aside aside_left">
+        <div class="aside__container container">
+          <div class="aside__title-wrapper">
+            <h2 class="aside__title">Настройки текста</h2>
+          </div>
+  
+          <div class="aside__input-wrapper aside-settings">
+            <label class="aside-settings__label">Шрифт:
+              <select class="aside-settings__input aside-settings__input_select" id="editor-font" onchange="setFontFamily(this.value)">
+                <option value="Arial">Arial</option>
+                <option value="Chalet London">Chalet London</option>
+                <option value="Proxima Nova" selected>Proxima Nova</option>
+              </select>
+            </label>
+  
+            <label class="aside-settings__label">Размер шрифта:
+              <input class="aside-settings__input aside-settings__input_number" type="number" value="20" max="24" min="16" onchange="setFontSize(this.value)">
+            </label>
+  
+            <label class="aside-settings__label">Размер обводки:
+              <input class="aside-settings__input aside-settings__input_number" type="number" value="4" max="5" min="0" onchange="setStroke(this.value)">
+            </label>
+  
+            <label class="aside-settings__label">Отступ между строк:
+              <input class="aside-settings__input aside-settings__input_number" type="number" value="2" min="-10" onchange="setRowMargin(this.value)">
+            </label>
+          </div>
+        </div>
+      </aside>
+  
+      <div class="editor__btn-wrapper">
+        <label class="editor__btn">
+          <input class="editor__btn_upload" type="file" id="image-file" accept=".png,.jpg,.jpeg,.bmp">
+  
+          <span class="editor__btn-text">Загрузить изображение</span>
+        </label>
+
+        <button class="editor__btn editor__btn_update" type="button" title="После нажатия обновляет заново текст на изображении исправляя проблемы отрисовки." onclick="applyFontParams()">Обновить текст</button>
+  
+        <button class="editor__btn" type="button" onclick="downloadImage()">Сохранить изображение</button>
+      </div>
+    </div>
+
+    <section class="processing">
+      <div class="processing__container container">
+        <h2 class="visually-hidden">Редактор скриншот ситуаций</h2>
+
+        <div class="processing__menu">
+          <button class="processing__tab processing__tab_active" id="edit-tab" type="button">Форматирование чатлога</button>
+                                                                                      
+          <button class="processing__tab" id="image-tab" type="button">Обработка скриншотов</button>
+        </div>
+
+        <div class="processing__editor editor visually-hidden">
+          <canvas class="processing__canvas canvas" height="1080" width="1920"></canvas>
+        </div>
+
+        <form method="post" id="form" style="display:block">
+          <textarea class="processing__textarea-input textarea" name="chatlog" id="chatlog" cols="30" rows="15" placeholder="Вставьте сюда чатлог или воспользуйтесь кнопкой 'Выберите файл лога'."></textarea>
+
+          <label class="processing__upload upload">
+            <input class="upload__btn" type="file" id="js-file" accept=".txt">
+
+            <span class="upload__text">Выберите файл лога</span>
+          </label>
+        </form>
+
+        <button class="processing__btn" id="btn1" type="button">Форматировать</button>
+
+        <textarea class="processing__textarea-output processing__textarea-output_low textarea" name="textarea_output" id="textarea2" cols="30" rows="15" spellcheck="true" placeholder="После нажатия на кнопку 'Форматировать' здесь появится результат обработки."></textarea>
+    
+        <div class="processing__swap swap">
+    
+          <div class="swap__wrapper">
+            <input class="swap__input" type="text" id="text1" placeholder="Какой фрагмент нужно заменить?">
+          </div>
+
+            <button class="swap__btn" id="swapbtn">
+              <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.75 11.875L17.5 8.125L13.75 4.375" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.5 15.625C2.5 13.6359 3.29018 11.7282 4.6967 10.3217C6.10322 8.91518 8.01088 8.125 10 8.125H17.5" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+    
+          <div class="swap__wrapper">
+            <input class="swap__input swap__input_second" type="text" id="text2" placeholder="На какой фрагмент нужно заменить?">
+          </div>
+            
+        </div>
+      </div>
+    </section>
+
+    <aside class="aside aside_right aside_hidden">
+      <div class="aside__container container">
+        <div class="aside__container container">
+          <div class="aside__title-wrapper">
+            <h2 class="aside__title">Форматирование текста</h2>
+          </div>
+
+          <div class="aside__input-wrapper aside-lines">
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">1.
+                <input class="aside-settings__input aside-settings__input_text" type="text" onkeyup="renderDynamicText(this.value, 1)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(1, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">2.
+                <input class="aside-settings__input aside-settings__input_text" type="text" onkeyup="renderDynamicText(this.value, 2)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(2, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">3.
+                <input class="aside-settings__input aside-settings__input_text" type="text" onkeyup="renderDynamicText(this.value, 3)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(3, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">4.
+                <input class="aside-settings__input aside-settings__input_text" id="input-four" type="text" onkeyup="renderDynamicText(this.value, 4)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(4, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">5.
+                <input class="aside-settings__input aside-settings__input_text" id="input-five" type="text" onkeyup="renderDynamicText(this.value, 5)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(5, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">6.
+                <input class="aside-settings__input aside-settings__input_text" id="input-six" type="text" onkeyup="renderDynamicText(this.value, 6)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(6, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">7.
+                <input class="aside-settings__input aside-settings__input_text" id="input-seven" type="text" onkeyup="renderDynamicText(this.value, 7)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(7, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">8.
+                <input class="aside-settings__input aside-settings__input_text" id="input-eight" type="text" onkeyup="renderDynamicText(this.value, 8)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(8, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">9.
+                <input class="aside-settings__input aside-settings__input_text" id="input-nine" type="text" onkeyup="renderDynamicText(this.value, 9)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(9, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">10.
+                <input class="aside-settings__input aside-settings__input_text" id="input-ten" type="text" onkeyup="renderDynamicText(this.value, 10)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(10, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">11.
+                <input class="aside-settings__input aside-settings__input_text" id="input-eleven" type="text" onkeyup="renderDynamicText(this.value, 11)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(11, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">12.
+                <input class="aside-settings__input aside-settings__input_text" id="input-twelve" type="text" onkeyup="renderDynamicText(this.value, 12)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(12, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">13.
+                <input class="aside-settings__input aside-settings__input_text" id="input-thirteen" type="text" onkeyup="renderDynamicText(this.value, 13)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(13, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">14.
+                <input class="aside-settings__input aside-settings__input_text" id="input-fourteen" type="text" onkeyup="renderDynamicText(this.value, 14)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(14, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">15.
+                <input class="aside-settings__input aside-settings__input_text" id="input-fiveteen" type="text" onkeyup="renderDynamicText(this.value, 15)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(15, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+
+            <div class="aside__line-wrapper">
+              <label class="aside-settings__label">16.
+                <input class="aside-settings__input aside-settings__input_text" id="input-sixteen" type="text" onkeyup="renderDynamicText(this.value, 16)">
+              </label>
+  
+              <select class="aside-settings__input aside-settings__input_select" onchange="setRowActionType(16, this.value)">
+                <option value="text" selected>Текст</option>
+                <option value="me">/me</option>
+                <option value="do">/do</option>
+                <option value="todo">/todo</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
 
   <footer class="footer">
     <div class="container">
@@ -91,10 +417,8 @@
         <svg class="footer__img" width="18" height="14" viewbox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0.0185995 2.39222C0.0203018 1.96326 0.294987 1.58341 0.703504 1.45253C1.78478 1.10612 3.89165 0.454111 5.08311 0.237482C6.1126 0.0444521 7.24933 0.280377 8.32172 0.34472C8.64343 0.366168 9.02949 0.516302 9.28686 0.409063C10.8525 -0.212921 12.311 -0.0842343 13.8552 0.516302C14.9121 0.903811 16.0268 1.21899 17.2112 1.52125C17.6677 1.63774 17.9882 2.05284 17.9882 2.52398C17.9883 3.5952 18.0023 5.35098 17.9829 6.75032C17.9783 7.08932 17.8034 7.39835 17.5147 7.57606C15.7511 8.66164 9.43867 12.5444 8.15013 13.2991C6.67024 14.1571 5.44772 12.5914 5.44772 12.5914L0.290385 7.37312C0.104416 7.18495 0.000589449 6.93076 0.00163927 6.66621L0.0185995 2.39222ZM11.6247 9.65303L12.4826 9.07394C12.4826 9.07394 10.5308 6.6289 9.45844 5.19191C6.69169 7.1651 5.29759 7.10075 3.68901 5.02032C5.04021 3.90504 6.39142 2.76831 7.91421 1.5029C5.96669 0.913732 3.17 1.77316 1.95399 2.21352C1.58315 2.34781 1.34711 2.7005 1.34075 3.09486L1.29362 6.01702C1.2893 6.28497 1.39101 6.54172 1.57876 6.73295C2.50886 7.68034 5.39634 10.6274 6.32708 11.6477C7.0992 12.4841 7.67828 12.4841 8.57909 11.6906C8.36461 11.3688 7.93566 10.6825 7.93566 10.6825L8.85791 10.0176L9.78016 11.0471L10.5523 10.5109L9.86595 9.33132C9.86595 9.33132 10.5094 8.92381 10.8097 8.73078C11.1099 9.07394 11.6247 9.65303 11.6247 9.65303ZM9.63003 3.54043C10.8525 5.04177 12.311 6.86483 13.5121 8.36617C14.6917 7.85142 16.0858 7.0793 16.6863 6.58601C16.6863 5.25625 16.6863 3.92649 16.6863 2.70397C15.2064 2.23212 13.8552 1.63158 12.4182 1.39566C11.496 1.24552 10.3378 1.33132 9.58713 1.80316C8.15013 2.68252 6.73458 3.86215 5.31903 5.06322C6.88472 6.37153 9.22252 3.64767 9.63003 3.54043Z" fill="currentColor"/>
         </svg>
-        Pasta</p>
+      Pasta</p>
     </div>
   </footer>
-
 </body>
-
 </html>

@@ -57,6 +57,17 @@ textarea:focus {
   outline: none;
 }
 
+.main {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.main__left-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .visually-hidden {
   position: absolute;
   clip: rect(1px 1px 1px 1px);

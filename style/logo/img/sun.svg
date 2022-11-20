@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="24px" height="24px" viewBox="0 0 24 24"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0,24) scale(0,-0.1)"
+fill="#000000" stroke="none">
+<path d="M77 162 c-22 -24 -21 -65 1 -85 40 -36 102 -9 102 45 0 51 -69 78
+-103 40z m81 -4 c15 -15 15 -61 0 -76 -15 -15 -61 -15 -76 0 -15 15 -15 61 0
+76 15 15 61 15 76 0z"/>
+<path d="M90 145 c-20 -24 -6 -28 15 -5 10 11 13 20 8 20 -6 0 -16 -7 -23 -15z"/>
+</g>
+</svg>

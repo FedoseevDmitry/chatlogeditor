@@ -12,7 +12,7 @@ body {
   border: 1px solid var(--dark-border-color);
 }
 
-.processing__header {
+.processing__menu {
   background: var(--dark-bg-third);
 }
 
@@ -23,6 +23,11 @@ body {
 
 .textarea {
   background-color: var(--dark-bg-textarea);
+}
+
+.textarea::placeholder,
+.swap__input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .swap__input {
