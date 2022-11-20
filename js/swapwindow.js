@@ -24,7 +24,7 @@ editTab.addEventListener('click', () => {
     form.style.display = 'block';
     leftMenu.classList.add('visually-hidden');
     asideRight.classList.add('aside_hidden');
-    outputTextarea.classList.remove('.processing__textarea-output_low');
+    outputTextarea.classList.remove('processing__textarea-output_low');
   }
 });
 
@@ -40,6 +40,6 @@ imageTab.addEventListener('click', () => {
     form.style.display = 'none';
     leftMenu.classList.remove('visually-hidden');
     asideRight.classList.remove('aside_hidden');
-    outputTextarea.classList.add('.processing__textarea-output_low');
+    outputTextarea.classList.add('processing__textarea-output_low');
   }
 });
