@@ -2,8 +2,8 @@
   display: flex;
   margin: 0 auto;
   margin-bottom: 10px;
-  width: 1024px;
-  height: 576px;
+  width: 53vw;
+  min-height: 61vh;
 }
 
 .editor__btn-wrapper {
@@ -15,7 +15,7 @@
 }
 
 .editor__btn {
-  width: 250px;
+  width: 13vw;
   height: 40px;
   background: var(--color-bg-btn);
   border-radius: 10px;
@@ -67,4 +67,10 @@
 	display: none;
 	width: 0;
 	height: 0;
+}
+
+@media (max-width: 1400px) {
+  .editor__btn {
+    font-size: 0.85em;
+  }
 }

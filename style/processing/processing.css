@@ -1,13 +1,12 @@
 .processing {
   margin-bottom: 20px;
-  grid-area: center;
 }
 
 .processing__container {
   box-shadow: 0px 8px 24px rgba(10, 17, 105, 0.08);
   border-radius: 12px;
   padding-bottom: 5px;
-  width: 1125px;
+  width: 57vw;
 }
 
 .processing__menu {
@@ -58,8 +57,8 @@
 
 .textarea {
   resize: none;
-  width: 1060px;
-  height: 209px;
+  width: 53vw;
+  height: 23vh;
   margin: 0 auto;
   display: flex;
   background-color: var(--color-bg-second);
@@ -109,7 +108,7 @@
   margin: 0 auto;
   margin-bottom: 22px;
   width: 550px;
-  height: 49px;
+  height: 7vh;
 }
 
 .upload__text {
@@ -139,7 +138,7 @@
 
 .processing__btn {
   width: 550px;
-  height: 49px;
+  height: 7vh;
   background: var(--color-bg-btn);
   border-radius: 10px;
   border-color: transparent;
@@ -167,7 +166,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 22px;
+  padding-bottom: 3vh;
 }
 
 .swap__wrapper:first-child {
@@ -185,7 +184,7 @@
 }
 
 .swap__input {
-  width: 396px;
+  width: 20vw;
   height: 38px;
   background: var(--color-bg-second);
   box-shadow: inset 0px 4px 16px rgba(0, 0, 0, 0.04);

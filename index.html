@@ -14,7 +14,7 @@
 
   <link rel="shortcut icon" href="/img/fav.png" type="image/png">
 
-  <link rel="preload" href="fonts/ProximaNova-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
   <link rel="preload" href="fonts/Chalet-LondonEighty.otf" as="font" type="font/otf" crossorigin>
 
   <link rel="stylesheet" href="style/style.css">
@@ -106,7 +106,7 @@
   
           <div class="aside__input-wrapper aside-settings">
             <label class="aside-settings__label">Шрифт:
-              <select class="aside-settings__input aside-settings__input_select" id="editor-font" onchange="setFontFamily(this.value)">
+              <select class="aside-settings__input aside-settings__input_select aside-settings__input_font" id="editor-font" onchange="setFontFamily(this.value)">
                 <option value="Arial">Arial</option>
                 <option value="Chalet London">Chalet London</option>
                 <option value="Proxima Nova" selected>Proxima Nova</option>
@@ -118,11 +118,11 @@
             </label>
   
             <label class="aside-settings__label">Размер обводки:
-              <input class="aside-settings__input aside-settings__input_number" type="number" value="4" max="5" min="0" onchange="setStroke(this.value)">
+              <input class="aside-settings__input aside-settings__input_number" type="number" value="4" max="7" min="0" onchange="setStroke(this.value)">
             </label>
   
             <label class="aside-settings__label">Отступ между строк:
-              <input class="aside-settings__input aside-settings__input_number" type="number" value="2" min="-10" onchange="setRowMargin(this.value)">
+              <input class="aside-settings__input aside-settings__input_number aside-settings__input_margin" type="number" value="2" min="-10" max="30" onchange="setRowMargin(this.value)">
             </label>
           </div>
         </div>
